@@ -24,7 +24,10 @@ t = 500 #total running time
 
 p = np.random.uniform(0, l, size=(n, 3)).astype(np.float32)
 
+v = np.random.uniform(-50, 50, size=(n, 3)).astype(np.float32)
 
+
+#Below variables are for cell-linked-list algorithm
 cell=np.floor_divide(p, cl).astype(int)
 
 weight=np.array([[1], [cno], [cno**2]]).astype(int)
@@ -56,5 +59,3 @@ for i in range(n):
 # Common aliases make the arrays easy to use in other simulation code.
 heads=head
 list=links
-
-v = np.random.uniform(-50, 50, size=(n, 3)).astype(np.float32)

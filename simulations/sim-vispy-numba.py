@@ -3,14 +3,13 @@ os.environ["QT_LOGGING_RULES"] = "qt.qpa.*=false"
 from vispy import scene
 from vispy import app
 from vispy.visuals.transforms import STTransform
-from variables import *
-from physics import run_simulation
+from backend.variables import *
+from backend.physicsnumba import run_simulation
 import time
 
 start = time.perf_counter()
 phistory = run_simulation(p, v, m, t, dt, l, rc, k, r0)
-end = time.perf_counter()
-print(f"Simulation time: {end - start:.4f} seconds")
+
 
 phistory = run_simulation(p, v, m, t, dt, l, rc, k, r0)
 
@@ -46,6 +45,9 @@ def update(event):
     if frame_index >= len(phistory):
         frame_index = 0
 
+
+end = time.perf_counter()
+print(f"Simulation time: {end - start:.4f} seconds")
 
 timer = app.Timer(interval=1/60.0)
 

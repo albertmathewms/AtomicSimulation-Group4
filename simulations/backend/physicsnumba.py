@@ -1,5 +1,5 @@
 import numpy as np
-from variables import *
+# from variables import *
 from numba import njit
 
 @njit(cache=True)

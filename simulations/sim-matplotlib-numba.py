@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from variables import *
-from physics import *
+from backend.variables import *
+from backend.physicsnumba import run_simulation
 import time
 
 start = time.perf_counter()

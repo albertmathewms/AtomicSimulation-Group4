@@ -2,6 +2,9 @@
 import os
 os.environ['QT_LOGGING_RULES'] = 'qt.qpa.*=false'
 
+import time
+start = time.perf_counter()
+
 import numpy as np
 from vispy import app, scene
 from vispy.visuals.transforms import STTransform
@@ -12,9 +15,11 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from backend.physicsc import run_simulation
 
+
+
 # Initial conditions and settings (the C function needs these as inputs).
 # The C code computes every force, time step and wall collision.
-n = 500                 # Use a smaller initial test: C checks every particle pair.
+n = 12                 # Use a smaller initial test: C checks every particle pair.
 t = 500
 dt = 0.01
 l = round((n * 10) ** (1 / 3))
@@ -47,5 +52,9 @@ def update(event):
     frame_index = (frame_index + 1) % len(phistory)
 
 update(None)
+
+end = time.perf_counter()
+print(f"Simulation time: {end - start:.4f} seconds")
+
 timer = app.Timer(interval=1 / 60, connect=update, start=True)
 app.run()

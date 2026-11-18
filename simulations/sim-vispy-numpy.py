@@ -10,8 +10,8 @@ start = time.perf_counter()
 from vispy import scene
 from vispy import app
 from vispy.visuals.transforms import STTransform
-from variables import *
-from physicsx import run_simulation
+from backend.variables import *
+from backend.physicsnumpy import run_simulation
 phistory = run_simulation(p, v, cno, t, dt, l, rc, k, r0, g, cell, weight)
 
 

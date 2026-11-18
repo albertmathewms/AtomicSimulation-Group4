@@ -1,0 +1,9 @@
+# Atomic Simulation — Python dependencies
+numpy
+numba
+matplotlib
+vispy
+PyQt6
+
+# Optional: experiments/physicscupy.py requires CuPy.
+# Install the CuPy build that matches your CUDA version separately.

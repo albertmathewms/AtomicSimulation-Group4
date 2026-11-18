@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from variables import *
-from physics import *
+from backend.variables import *
+from backend.physicsnumpy import run_simulation
 phistory = run_simulation(p, v, cno, t, dt, l, rc, k, r0, g, cell, weight)
 
 import time
